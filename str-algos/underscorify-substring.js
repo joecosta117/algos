@@ -20,14 +20,12 @@ function createIndexArr(str, sub) {
   }
 
   uniqIdx = [...new Set(indices)]
-  // console.log("OG, ", uniqIdx)
 
   for (let i = 0; i < uniqIdx.length; i++) {
     if (uniqIdx[i + 1] - uniqIdx[i] === 1) {
       uniqIdx.splice(i, 1)
       i--
     } else if (uniqIdx[i] - uniqIdx[i - 1] === subLength + 1) {
-      // console.log(uniqIdx[i] - uniqIdx[i - 1])
       uniqIdx.splice(i, 1)
     }
   }
@@ -37,13 +35,10 @@ function createIndexArr(str, sub) {
   for (let i = 0; i < uniqIdx.length; i++) {
     if (i > 0) {
       if (uniqIdx[i] - uniqIdx[i - 1] === subLength && uniqIdx[i + 1] - uniqIdx[i] === subLength) {
-        let elim = [i]
         let x = i
         while (uniqIdx.length) {
           x++
           if (uniqIdx[x + 1] - uniqIdx[x] === subLength) {
-            elim.push(x)
-          } else {
             break
           }
         }
@@ -51,7 +46,6 @@ function createIndexArr(str, sub) {
       }
     }
   }
-  // console.log(uniqIdx)
   return uniqIdx
 }
 
