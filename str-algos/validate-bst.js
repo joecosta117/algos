@@ -35,27 +35,17 @@ class BST {
 
 function validateBst(tree) {
   // Write your code here.
-  let max = tree.value;
-  let min = tree.value;
+  const max = Infinity
+  const min = -Infinity
 
-  return validateHelper(tree, max, min)
+  return validateHelper(tree, min, max)
 }
 
-function validateHelper(tree, max, min) {
-  if (tree.right) {
-    if (tree.right.value >= tree.value && tree.right.value > min) {
-      return validateHelper(tree.right)
-    } else {
-      return false
-    }
-  } else if (tree.left) {
-    if (tree.left.value < tree.value && tree.left.value < max) {
-      return validateHelper(tree.left)
-    } else {
-      return false
-    }
-  }
-  return true
+function validateHelper(tree, min, max) {
+  if (tree === null) return true
+  if (tree.value < min || tree.value >= max) return false
+  let left = validateHelper(tree.left, min, tree.value)
+  return left && validateHelper(tree.right, tree.value, max)
 }
 
 let test = new BST(10).insert(5).insert(15).insert(5).insert(2).insert(1).insert(22).insert(13).insert(14)
