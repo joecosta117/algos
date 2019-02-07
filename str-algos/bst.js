@@ -71,7 +71,6 @@ class BST {
         console.log(this.value)
         this.right.remove(this.value, this)
       } else if (parent === null) {
-        debugger
         if (this.left) {
           this.value = this.left.value
           this.right = this.left.right
