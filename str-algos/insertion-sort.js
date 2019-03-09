@@ -1,3 +1,4 @@
+//better way and simpler. not necessary to create new array
 function insertionSort(array) {
   // Write your code here.
   for (let i = 0; i < array.length; i++) {
@@ -13,6 +14,7 @@ function insertionSort(array) {
   return array
 }
 
+//first attempt and way too messy and complex.
 function insertionSort(array) {
   // Write your code here.
   let sortArr = [array[0]]
