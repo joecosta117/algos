@@ -22,3 +22,28 @@ function selectionSort(array) {
   return array
 }
 
+//better time complexity below:
+function selectionSort(array) {
+  // Write your code here.
+  let curMin = 0;
+  let curItem = 0;
+  let curr;
+
+
+  while (curItem < array.length) {
+    curr = array[curItem]
+    curMin = curItem
+    for (let i = curItem + 1; i < array.length; i++) {
+      if (array[i] < array[curMin]) {
+        curMin = i
+      }
+    }
+    if (array[curMin] !== curr) {
+      array[curItem] = array[curMin]
+      array[curMin] = curr
+    }
+    curItem++
+  }
+  return array
+}
+
